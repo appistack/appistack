@@ -59,4 +59,5 @@ so why would you want an unnecessary caching layer to add another dimension of c
 Great example: your API should not give a !@#$ about caching client-side HTML page fragments.  If your application server uses memcached to 
 cache HTML views, have fun scaling that !@#$. It's a hard problem to solve and very expensive.  Client-side caching is not a problem your API 
 should be concerned with, nor should it be concerned with managing or building your static assets!  Fortunately API-driven Single-Page Apps, 
-many problems are much simpler.
+many problems are much simpler.  If your API does actually *need* a caching layer for JSON responses, then congratulations -- you probably
+make a lot more money than me.
