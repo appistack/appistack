@@ -1,0 +1,9 @@
+[submodule "rails"]
+	path = rails
+	url = git@github.com:appistack/appistack-rails
+[submodule "ng"]
+	path = ng
+	url = git@github.com:appistack/appistack-ng
+[submodule "swift"]
+	path = swift
+	url = git@github.com:appistack/appistack-swift
