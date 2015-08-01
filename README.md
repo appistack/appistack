@@ -1,29 +1,40 @@
 ## Appistack 
 
-Appistack is a technology stack template for startups and API-driven applications.  It was designed with Hackathon developers in mind:
-Appistack enables developers to hit the ground running with an API and single page app deployed to Heroku/Divshot in two hours or less.  
-Get the CRUD out of the way and start building.
+Appistack is a technology stack template for startups and API-driven applications.  
 
-Appistack includes the following projects:
+### Designed with Hackathons in mind
+
+Appistack enables developers to hit the ground running with an API and single page app deployed to Heroku/Divshot in less than an hour.  
+If you follow the deploy instructions below, you'll have a publicly facing Rails API with user registration and a single-page Angular app
+with CORS configured.  And you can do this all for free, with [Heroku](https://www.heroku.com/), [Sendgrid](https://sendgrid.com/)
+and [Divshot](https://divshot.com/).  So get the CRUD out of the way and start building.
+
+Appistack includes the following project templates:
   
-- [appistack/appistack-rails](http://github.com/appistack/appistack-rails): An API-only implementation of Rails with token authentication.
-- [appistack/appistack-ng](http://github.com/appistack/appistack-ng): An AngularJS/Bootstrap soundboard app, with great examples for webaudio and canvas. 
-- [appistack/appistack-swift](http://github.com/appistack/appistack-swift): An iOS soundboard app written in bleeding edge Swift 2.0.
-- appistack/appistack-droid: An Android soundboard app (coming soon)
-- appistack/appistack-ionic: An ionic implementation of the Angular app.
+- [appistack-rails](http://github.com/appistack/appistack-rails): An API-only implementation of Rails with token authentication.
+- [appistack-ng](http://github.com/appistack/appistack-ng): An AngularJS/Bootstrap soundboard app, with great examples for webaudio and canvas. 
+- [appistack-swift](http://github.com/appistack/appistack-swift): An iOS soundboard app written in *bloody edge* Swift 2.0.  Requires XCode7 Beta 4.
+- appistack-droid: An Android soundboard app (coming soon)
+- appistack-ionic: An ionic implementation of the Angular app (coming soon)
+- other project templates could include: Backbone, Ember, React, iOS (Objective-C), Django
 
 ## Appistack Goals
 
-#### Generic Featureset
+Because these template projects are intended to be [relevantly] used again in the future, they are written in bleeding edge 
+versions of the frameworks, like Rails 4.2, Angular 1.4 and Swift 2.0.
+
+#### Generic Feature Set
 
 The features are fairly generic.  That is, for the most part, Appistack only has the features that every startup application would need to begin with.
 The API has token-based authentication, which is a must for Android/iOS apps.  The client apps all have user registration & login built into them.  
 The Angular app already includes UI for email confirmation and password reset flows.
 
-There are just three models in each app: Users, Artists and Sounds, which is an exception to the goal of a generic set of features.
-Developers will need to rip out the code for Artist & Sounds, as their app will likely use a different set of models.  ...
+There are just three models in each app: Users, Artists and Sounds.  You'll need to rip out the code for Artist & Sounds, 
+as your app will likely use a different set of models.  However, I wanted to demonstrate Appistack's modular architecture in
+a very interactive way.  Also, there's some great examples of how to use WebAudio/Canvas together to implement custom
+audio in the web, with graphics.
 
-#### Generic Technical Implemenation
+#### Generic Technical Implementation
 
 The technical implementation is designed to be as generic as possible, so you can just fork the projects and build on top of them.
 This way, you can hit the ground running instead of spending a ton of time ripping code out.  
@@ -42,22 +53,65 @@ The Rails project has a few basic unit tests included, but the idea is that you'
 
 #### Generic API between Server/Clients
 
-The API is designed so that the API or clients can easily be replaced.  You can easily run a Django or Clojure API and connect the
-same Angular app to it.  Or you can build a Backbone app and easily connect it -- with no changes required to format of the API responses.  
+The API is designed so that both the API or clients can easily be replaced.  You can easily run a Django or Clojure API and connect the
+same Angular app to it.  Or you can build a Backbone app and easily connect it to your API -- with no changes required to format of the API responses.  
 Any API implementation will need to be configured to return authentication/registration responses in the format of DeviseTokenAuth.  NgTokenAuth is
 used by the Angular app and there are non-Angular implementations for the same DeviseTokenAuth API responses.
+
+#### Containerized for Sweet Devops
+
+*All configuration* for each Appistack project is specified with environment variables.  For now, technically the API is the only template
+to use environment variables, but the others all have configuration files set up.  Examples of configuration values are:
+static assets url, api url, sendgrid configuration, etc.
+
+This is part of the [Twelve Factor](http://12factor.net/) methodology, which greatly simplifies deployment.  Twelve-factor also 
+greatly simplifies automation and orchestration of your application later on.  For example, you can easily run your projects 
+inside Docker containers, which can be snapped together like lego pieces and deployed into various environments.
+ 
+So when you need to configure Amazon S3 or host your Angular Application on a CDN, these application templates are ready
+to be configured to do that.  And for the most part, all you need to change are environment variables and configuration files.
 
 #### Separated Concerns
 
 In addition to being a template for startups, Appistack is a good example of the benefits of separated concerns in your architecture.  
 Your API should be an great API and that's it.  It should create resources and serve data to various clients, which all expect
 interactions with the API to occur in a common language.  When your API becomes concerned with solving too many problems,
-your application because less technically agile.  Down the road, it becomes harder to try new technologies and scalability 
-becomes a problem.  Scalability is hard enough when you're sharding your data sources and distributing your services, 
-so why would you want an unnecessary caching layer to add another dimension of complexity? 
- 
+your application becomes less technically agile.  Down the road, it becomes harder to try new technologies and scalability 
+becomes a problem.  
+
 Great example: your API should not give a !@#$ about caching client-side HTML page fragments.  If your application server uses memcached to 
-cache HTML views, have fun scaling that !@#$. It's a hard problem to solve and very expensive.  Client-side caching is not a problem your API 
-should be concerned with, nor should it be concerned with managing or building your static assets!  Fortunately API-driven Single-Page Apps, 
+cache HTML views, have fun scaling that !@#$. It's a hard problem to solve and very expensive.  Scalability is hard enough when you're 
+sharding your data sources and distributing your services, so why would you want an unnecessary caching layer to add another 
+dimension of complexity?  Client-side caching is not a problem your API 
+should be concerned with, nor should it be concerned with managing or building your static assets.  Fortunately API-driven Single-Page Apps, 
 many problems are much simpler.  If your API does actually *need* a caching layer for JSON responses, then congratulations -- you probably
 make a lot more money than me.
+
+Another advantage in separating your API/Client is your backend developers only need to worry about the API and your frontend
+developers can focus on the frontend.  Both the development of backend and frontend can proceed independently.  Designers will
+ find it easier to work in a frontend-only project.
+
+#### Got 99 Problems, But Cross-Origin-Resource-Sharing Ain't One 
+
+Obviously, Single Page Apps (SPA's) have a lot to offer: improved developer productivity, more flexible frontend frameworks, and 
+a more responsive user experience.  However, the alluring simplicity of single-page apps comes with several new problems 
+you'll need to resolve, including CORS, static asset configuration (user uploaded assets on S3), token-based authentication and others.  
+
+When starting a new app, most developers and productivity-minded people will prefer to build it with the simplest tools.  
+"Just get it to work" is the mantra -- and it's not all that wrong. There are a ton of problems specific to SPA's that you won't
+need to spend weeks solving if you're just using Rails or Django.  But further down the road, the benefits of an architecture with
+an API & SPA will greatly outweigh an architecture with just a monolithic Rails server.  
+
+But, the prevailing attitude is always "just get it working."  Just get something in the user's hands that they can use to test
+the validity of an idea.  The problem with this attitude is not that it's wrong, but that it sets up an inevitable problem
+down the road, where you have to migrate from the Monolithic Rails architecture to a Single Page App.  And in my experience,
+*transitions like these never happen.*  Or if it does, it takes months.  From a business perspective, it's really hard 
+to justify such a lengthy transition, when it requires a ton of time/money and produces little immediate benefit to your customers. 
+
+However, if there were a framework where all these complex SPA problems are already solved -- and they're not really that complex -- 
+a ton of time can be saved using something like Appistack as a starting point.  Frontend frameworks are !@#$'ing magical.  Both for the developer
+and for the customer.  And if your frontend isn't entangled in your API code, it's a lot easier to experiment with a variety 
+of technologies. 
+
+## Deploying to Heroku & Divshot
+​
