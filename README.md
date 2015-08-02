@@ -18,6 +18,10 @@ Appistack includes the following project templates:
 - appistack-ionic: An ionic implementation of the Angular app (coming soon)
 - other project templates could include: Backbone, Ember, React, iOS (Objective-C), Django
 
+## Deploying to Heroku & Divshot
+​
+
+
 ## Appistack Goals
 
 Because these template projects are intended to be [relevantly] used again in the future, they are written in bleeding edge 
@@ -112,6 +116,3 @@ However, if there were a framework where all these complex SPA problems are alre
 a ton of time can be saved using something like Appistack as a starting point.  Frontend frameworks are !@#$'ing magical.  Both for the developer
 and for the customer.  And if your frontend isn't entangled in your API code, it's a lot easier to experiment with a variety 
 of technologies. 
-
-## Deploying to Heroku & Divshot
-​
