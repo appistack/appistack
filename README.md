@@ -35,6 +35,25 @@ other project templates could include: Backbone, Ember, React, iOS (Objective-C)
 
 ## Using Appistack
 
+#### It's Both For Noobs and not For Noobs
+
+While this is a great example of a containerized Single Page App that
+can easily be deployed to multiple environments, you still have to know
+Rails, Angular and/or iOS to get much out of this.  
+
+Additionally, if you aren't familiar with how these templates are laid out, you're not going
+to be able to jump right in and hack on them.  And that's an unfortunate
+paradox of most programming tools -- and especially templates/dotfiles
+-- they're incredibly powerful, but *at least as complicated* as the problem-domain 
+they help solve.  Occasionally, a well crafted interface and mix of
+tools will reduce the problem complexity, but it can never be eliminated.
+
+In other words, just having the tools doesn't help much.  You have to
+know how to use them.  I'm providing these to show how I solve these problems as well as to
+reuse them myself in the future.  But I'm also posting them online bc
+they could be very useful to anyone who wants to quickly iterate on new
+ideas. *Do More Faster*, right?
+ 
 #### Using Git Submodules
 
 While this project is a collection of git submodules, that's really to
