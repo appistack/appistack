@@ -9,18 +9,82 @@ If you follow the deploy instructions below, you'll have a publicly facing Rails
 with CORS configured.  And you can do this all for free, with [Heroku](https://www.heroku.com/), [Sendgrid](https://sendgrid.com/)
 and [Divshot](https://divshot.com/).  So get the CRUD out of the way and start building.
 
-Appistack includes the following project templates:
+### Appistack Project Templates
   
-- [appistack-rails](http://github.com/appistack/appistack-rails): An API-only implementation of Rails with token authentication.
-- [appistack-ng](http://github.com/appistack/appistack-ng): An AngularJS/Bootstrap soundboard app, with great examples for webaudio and canvas. 
-- [appistack-swift](http://github.com/appistack/appistack-swift): An iOS soundboard app written in *bloody edge* Swift 2.0.  Requires XCode7 Beta 4.
-- appistack-droid: An Android soundboard app (coming soon)
-- appistack-ionic: An ionic implementation of the Angular app (coming soon)
-- other project templates could include: Backbone, Ember, React, iOS (Objective-C), Django
+#### [appistack-rails](http://github.com/appistack/appistack-rails)
+
+An API-only implementation of Rails with token authentication.
+
+#### [appistack-ng](http://github.com/appistack/appistack-ng)
+
+An AngularJS/Bootstrap soundboard app, with great examples for webaudio and canvas. 
+
+#### [appistack-swift](http://github.com/appistack/appistack-swift)
+
+An iOS soundboard app written in *bloody edge* Swift 2.0.  Requires XCode7 Beta 4.
+
+#### appistack-droid
+
+An Android soundboard app (coming soon)
+
+#### appistack-ionic
+
+An ionic implementation of the Angular app (coming soon)
+
+other project templates could include: Backbone, Ember, React, iOS (Objective-C), Django
+
+## Using Appistack
+
+#### Using Git Submodules
+
+While this project is a collection of git submodules, that's really to
+centralize the docs and repositories in one place.  I'd recommend
+against using gitmodules, unless you're really familiar with them. Instead, 
+just fork the templates you need, not the Appistack repository.
+Replacing git submodules is really confusing.
+
+#### Pulling in Upstream Changes from an Appistack Template
+
+Sidenote: So far, I've kept the commits atomic on
+each template project.  This has been helpful, as I can chose to cherry
+pick commits onto a personal project from the appistack template
+upstream.  Once I use Appistack to start a new project, I woudn't
+usually plan on rebasing in upstream changes from the templates.
+However, since I'm finalizing the templates, it's been convenient
+to distribute selective changes across both projects.
+
+In these projects forked from Appistack, I have two git
+remotes: origin and appistack.  So, once I make changes to Appistack,
+I can just `git fetch appistack` on the fork project, find the atomic
+commits I need and cherry pick them. It's stll kind of a pain to maintain
+changes across two sets of projects, so I don't plan on doing this for
+long.
 
 ## Deploying to Heroku & Divshot
-​
 
+#### 1) Determine Configuration
+
+As you deploy the API and Angular templates, you'll need to configure
+settings like API, Assets and Client location across each project.  
+
+If you're going to use a domain name, get that set up with your DNS
+provider now.  However, you don't need one, as you can deploy to Heroku
+and Divshot for free without one.
+
+#### 2) Deploy Your API
+
+Follow the [Appistack Rails 4.2 Deploy Instructions](https://github.com/appistack/appistack-rails#deploying-to-heroku).
+
+#### 3) Deploy Your Single Page App
+
+Follow the [Appistack Angular Configuration Instructions](https://github.com/appistack/appistack-ng#configuring-divshot) to
+get setup.  [Divshot Deploy Instructions](https://github.com/appistack/appistack-ng#deploying-to-divshot) 
+can be found here.A
+
+#### 4) Configure Mobile Clients
+
+You can try connecting to your API using additional Appistack client templates, like the 
+[iOS/Swift](https://github.com/appistack/appistack-swift) client.
 
 ## Appistack Goals
 
