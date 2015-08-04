@@ -7,3 +7,6 @@
 [submodule "swift"]
 	path = swift
 	url = git@github.com:appistack/appistack-swift
+[submodule "ionic"]
+	path = ionic
+	url = git@github.com:appistack/appistack-ionic
