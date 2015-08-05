@@ -21,11 +21,11 @@ An AngularJS/Bootstrap soundboard app, with great examples for webaudio and canv
 
 #### [appistack-swift](http://github.com/appistack/appistack-swift)
 
-An iOS soundboard app written in *bloody edge* Swift 2.0.  Requires XCode7 Beta 4.
+An iOS soundboard app written in *bloody edge* Swift 2.0.  Requires XCode7 Beta 4.  Set up to work with Appistack Rails.  Includes Login/Signup.
 
-#### appistack-droid
+#### [appistack-droid](http://github.com/appistack/appistack-droid)
 
-An Android soundboard app (coming soon)
+An Android soundboard app with Waveform and FFT audion Visualizers. Set up to work with Appistack Rails.  Includes Login/Signup.
 
 #### appistack-ionic
 
