@@ -11,25 +11,25 @@ and [Divshot](https://divshot.com/).  So get the CRUD out of the way and start b
 
 ### Appistack Project Templates
   
-#### [appistack-rails](http://github.com/appistack/appistack-rails)
+#### [appistack-rails](https://github.com/appistack/appistack-rails)
 
 An API-only implementation of Rails with token authentication.
 
-#### [appistack-ng](http://github.com/appistack/appistack-ng)
+#### [appistack-ng](https://github.com/appistack/appistack-ng)
 
 An AngularJS/Bootstrap soundboard app, with great examples for webaudio and canvas. 
 
-#### [appistack-swift](http://github.com/appistack/appistack-swift)
+#### [appistack-swift](https://github.com/appistack/appistack-swift)
 
 An iOS soundboard app written in *bloody edge* Swift 2.0.  Requires XCode7 Beta 4.  Set up to work with Appistack Rails.  Includes Login/Signup.
 
-#### [appistack-droid](http://github.com/appistack/appistack-droid)
+#### [appistack-droid](https://github.com/appistack/appistack-droid)
 
 An Android soundboard app with Waveform and FFT audion Visualizers. Set up to work with Appistack Rails.  Includes Login/Signup.
 
-#### appistack-ionic
+#### [appistack-ionic](https://github.com/appistack/appistack-ionic)
 
-An ionic implementation of the Angular app (coming soon)
+An ionic implementation of the Angular app
 
 other project templates could include: Backbone, Ember, React, iOS (Objective-C), Django
 
